@@ -19,6 +19,7 @@ class GameCanvas extends View {
     public GameCanvas(Context context) {
         super(context);
         paint = new Paint();
+        random = new Random();
     }
 
     public void setModel(Model model) {
@@ -36,6 +37,14 @@ class GameCanvas extends View {
         paint.setStyle(Paint.Style.FILL);
         paint.setColor(Color.RED);
 
-        canvas.drawRect(100, 100,200, 200, paint);
+        int x = random.nextInt(MainActivity.width-200);
+        int y  = random.nextInt(MainActivity.height-200);
+        makeNewSquare(x,y);
+        canvas.drawRect(x, y,x+200, y+200, paint);
+    }
+
+    private void makeNewSquare(int x, int y) {
+        Square square = new Square(x,y);
+        model.squares.add(square);
     }
 }

@@ -7,7 +7,7 @@ import android.widget.TextView;
 
 public class Gameplay extends LinearLayout {
 
-    TextView score, timeRemaining;
+    TextView scoreLabel, timeRemaining;
 
     public Gameplay(Context context) {
         super(context);
@@ -21,12 +21,12 @@ public class Gameplay extends LinearLayout {
         topSection.setLayoutParams(new LayoutParams(MainActivity.width, MainActivity.height/10));
 
         // Score
-        score = new TextView(context);
-        topSection.addView(score);
-        score.setText("Score: 0");
-        score.setTextColor(Color.WHITE);
-        score.setTextSize(20);
-        score.setLayoutParams(new LayoutParams(MainActivity.width/2, MainActivity.height/10));
+        scoreLabel = new TextView(context);
+        topSection.addView(scoreLabel);
+        scoreLabel.setText("Score: 0");
+        scoreLabel.setTextColor(Color.WHITE);
+        scoreLabel.setTextSize(20);
+        scoreLabel.setLayoutParams(new LayoutParams(MainActivity.width/2, MainActivity.height/10));
 
         // Time Remaining
         timeRemaining = new TextView(context);
@@ -38,10 +38,17 @@ public class Gameplay extends LinearLayout {
 
         // Canvas
         GameCanvas gameCanvas = new GameCanvas(context);
-        gameCanvas.setModel(new Model(gameCanvas));
-        gameCanvas.setController(new Controller());
+        Model model = new Model(gameCanvas, this);
+        gameCanvas.setModel(model);
+        Controller controller = new Controller();
+        gameCanvas.setController(controller);
+        controller.setModel(model);
         addView(gameCanvas);
         gameCanvas.setLayoutParams(new LayoutParams(MainActivity.width, (int) (MainActivity.height*0.9)));
         gameCanvas.invalidate();
+    }
+
+    public void setScoreLabel(int score) {
+        scoreLabel.setText("Score: " + score);
     }
 }
