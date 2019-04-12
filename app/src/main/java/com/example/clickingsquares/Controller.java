@@ -44,6 +44,12 @@ class Controller {
                 // redraw
                 view.invalidate();
 
+                // check for end game condition
+                if (model.score >= 100) {
+                    long totalTime = (System.currentTimeMillis() - model.startTime) / 1000;
+                    System.out.println(totalTime);
+                }
+
                 return false;
         }
 

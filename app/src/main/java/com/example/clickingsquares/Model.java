@@ -6,7 +6,7 @@ public class Model {
 
     GameCanvas gameCanvas;
     ArrayList<Square> squares;
-    int score, timer;
+    int score;
     Gameplay gameplay;
     long startTime;
 
@@ -16,7 +16,6 @@ public class Model {
         this.squares = new ArrayList<>();
         startTime = System.currentTimeMillis();
         score = 0;
-        timer = 60;
     }
 
     public Square checkHit(float x, float y) {

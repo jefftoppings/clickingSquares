@@ -9,7 +9,7 @@ import java.util.Random;
 
 public class Gameplay extends LinearLayout {
 
-    TextView scoreLabel, timeRemaining;
+    TextView scoreLabel;
     GameCanvas gameCanvas;
     Random random;
     Model model;
@@ -36,14 +36,6 @@ public class Gameplay extends LinearLayout {
         scoreLabel.setTextSize(20);
         scoreLabel.setLayoutParams(new LayoutParams(MainActivity.width/2, MainActivity.height/10));
 
-        // Time Remaining
-        timeRemaining = new TextView(context);
-        topSection.addView(timeRemaining);
-        timeRemaining.setText("Time Remaining: 60");
-        timeRemaining.setTextColor(Color.WHITE);
-        timeRemaining.setTextSize(20);
-        timeRemaining.setLayoutParams(new LayoutParams(MainActivity.width/2, MainActivity.height/10));
-
         // Canvas, set references
         gameCanvas = new GameCanvas(context);
         model = new Model(gameCanvas, this);
@@ -68,7 +60,4 @@ public class Gameplay extends LinearLayout {
         scoreLabel.setText("Score: " + score);
     }
 
-    public void setTimerLabel(int timer) {
-        timeRemaining.setText("Time Remaining: " + timer);
-    }
 }
