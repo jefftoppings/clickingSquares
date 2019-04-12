@@ -39,6 +39,7 @@ public class Gameplay extends LinearLayout {
         // Canvas
         GameCanvas gameCanvas = new GameCanvas(context);
         gameCanvas.setModel(new Model(gameCanvas));
+        gameCanvas.setController(new Controller());
         addView(gameCanvas);
         gameCanvas.setLayoutParams(new LayoutParams(MainActivity.width, (int) (MainActivity.height*0.9)));
         gameCanvas.invalidate();

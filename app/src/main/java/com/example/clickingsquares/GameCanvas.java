@@ -13,6 +13,7 @@ class GameCanvas extends View {
     Canvas canvas;
     Paint paint;
     Model model;
+    Controller controller;
     Random random;
 
     public GameCanvas(Context context) {
@@ -22,6 +23,11 @@ class GameCanvas extends View {
 
     public void setModel(Model model) {
         this.model = model;
+    }
+
+    public void setController(Controller controller) {
+        this.controller = controller;
+        this.setOnTouchListener(controller::handleTouched);
     }
 
     protected void onDraw(Canvas canvas) {
