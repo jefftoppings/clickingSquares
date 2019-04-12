@@ -46,8 +46,8 @@ class Controller {
 
                 // check for end game condition
                 if (model.score >= 100) {
-                    long totalTime = (System.currentTimeMillis() - model.startTime) / 1000;
-                    System.out.println(totalTime);
+                    MainActivity.root.removeAllViews();
+                    MainActivity.root.addView(new EndGame(model.gameplay.getContext(), model));
                 }
 
                 return false;
