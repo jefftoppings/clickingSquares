@@ -1,4 +1,4 @@
-package com.example.clickingsquares;
+package com.jeff.clickingsquares;
 
 import android.graphics.Point;
 import android.support.v7.app.AppCompatActivity;

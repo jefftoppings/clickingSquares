@@ -1,4 +1,4 @@
-package com.example.clickingsquares;
+package com.jeff.clickingsquares;
 
 import org.junit.Test;
 

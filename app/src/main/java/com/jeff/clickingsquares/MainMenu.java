@@ -1,13 +1,11 @@
-package com.example.clickingsquares;
+package com.jeff.clickingsquares;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.graphics.drawable.GradientDrawable;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
-import android.widget.Space;
 import android.widget.TextView;
 
 public class MainMenu extends LinearLayout {

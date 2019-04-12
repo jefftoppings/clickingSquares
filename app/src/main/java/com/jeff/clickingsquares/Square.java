@@ -1,6 +1,4 @@
-package com.example.clickingsquares;
-
-import android.graphics.Color;
+package com.jeff.clickingsquares;
 
 class Square {
 

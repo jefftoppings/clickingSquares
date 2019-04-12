@@ -1,4 +1,4 @@
-package com.example.clickingsquares;
+package com.jeff.clickingsquares;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
