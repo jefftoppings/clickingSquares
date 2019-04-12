@@ -51,6 +51,19 @@ public class MainMenu extends LinearLayout {
         linearLayoutParams.gravity = Gravity.CENTER;
         startButton.setLayoutParams(linearLayoutParams);
 
+        // instructions
+        TextView instructions = new TextView(context);
+        addView(instructions);
+        String instructionsText = "\n\n" +
+                "Instructions\n\n" +
+                "Tap a square to get +1 point\n" +
+                "If you miss, you get -1 point\n" +
+                "\n" +
+                "How fast can you get to 100 points?";
+        instructions.setText(instructionsText);
+        instructions.setTextSize(20);
+        instructions.setTextAlignment(TEXT_ALIGNMENT_CENTER);
+
         // adjust size and positioning of container
         LinearLayout.LayoutParams containerLayoutParams = (LinearLayout.LayoutParams)container.getLayoutParams();
         containerLayoutParams.gravity = Gravity.CENTER;
