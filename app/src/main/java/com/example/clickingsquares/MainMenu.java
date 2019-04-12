@@ -58,8 +58,6 @@ public class MainMenu extends LinearLayout {
     }
 
     private void startGame(View view) {
-        System.out.println("Game Starts");
-
         MainActivity.root.removeAllViews();
         MainActivity.root.addView(new Gameplay(context));
     }
