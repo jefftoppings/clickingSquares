@@ -30,6 +30,11 @@ class Controller {
                     // redraw
                     view.invalidate();
                 }
+                else {
+                    model.score--;
+                    model.gameplay.setScoreLabel(model.score);
+                }
+                return false;
         }
 
         return false;
