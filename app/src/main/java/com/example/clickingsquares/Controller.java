@@ -6,8 +6,10 @@ import android.view.View;
 class Controller {
 
     Model model;
+    int squaresToAdd;
 
     public Controller() {
+        squaresToAdd = 1;
     }
 
     public void setModel(Model model) {
@@ -26,14 +28,22 @@ class Controller {
 
                     // remove selected square
                     model.squares.remove(hit);
-
-                    // redraw
-                    view.invalidate();
                 }
                 else {
                     model.score--;
                     model.gameplay.setScoreLabel(model.score);
                 }
+
+                // add more squares
+                if (model.squares.size() < 40) {
+                    for (int i = 0; i < 5; i++) {
+                        model.gameplay.makeNewSquare();
+                    }
+                }
+
+                // redraw
+                view.invalidate();
+
                 return false;
         }
 

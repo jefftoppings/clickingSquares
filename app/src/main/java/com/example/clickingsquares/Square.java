@@ -1,12 +1,20 @@
 package com.example.clickingsquares;
 
+import android.graphics.Color;
+
 class Square {
 
-    int x, y;
+    int x, y, r, g, b;
 
     public Square(int x, int y) {
         this.x = x;
         this.y = y;
+    }
+
+    public void setColor(int r, int g, int b) {
+        this.r = r;
+        this.g = g;
+        this.b = b;
     }
 
     public boolean checkClicked(float xClick, float yClick) {

@@ -34,16 +34,21 @@ class GameCanvas extends View {
     protected void onDraw(Canvas canvas) {
         this.canvas = canvas;
 
-        paint.setStyle(Paint.Style.FILL);
-        paint.setColor(Color.RED);
+        if (model.squares.size() == 0) {
+            makeNewSquare();
+        }
 
-        int x = random.nextInt(MainActivity.width-200);
-        int y  = random.nextInt(MainActivity.height-200);
-        makeNewSquare(x,y);
-        canvas.drawRect(x, y,x+200, y+200, paint);
+        paint.setStyle(Paint.Style.FILL);
+
+        for (Square s : model.squares) {
+            paint.setColor(Color.rgb(s.r, s.g, s.b));
+            canvas.drawRect(s.x, s.y,s.x+200, s.y+200, paint);
+        }
     }
 
-    private void makeNewSquare(int x, int y) {
+    private void makeNewSquare() {
+        int x = random.nextInt(MainActivity.width-200);
+        int y  = random.nextInt(MainActivity.height-200);
         Square square = new Square(x,y);
         model.squares.add(square);
     }

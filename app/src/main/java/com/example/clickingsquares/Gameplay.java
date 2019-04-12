@@ -5,12 +5,20 @@ import android.graphics.Color;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import java.util.Random;
+
 public class Gameplay extends LinearLayout {
 
     TextView scoreLabel, timeRemaining;
+    GameCanvas gameCanvas;
+    Random random;
+    Model model;
+    Controller controller;
+    long startTime;
 
     public Gameplay(Context context) {
         super(context);
+        this.random = new Random();
         setOrientation(VERTICAL);
         setBackgroundColor(Color.DKGRAY);
         setLayoutParams(new LayoutParams(MainActivity.width, MainActivity.height));
@@ -36,19 +44,31 @@ public class Gameplay extends LinearLayout {
         timeRemaining.setTextSize(20);
         timeRemaining.setLayoutParams(new LayoutParams(MainActivity.width/2, MainActivity.height/10));
 
-        // Canvas
-        GameCanvas gameCanvas = new GameCanvas(context);
-        Model model = new Model(gameCanvas, this);
+        // Canvas, set references
+        gameCanvas = new GameCanvas(context);
+        model = new Model(gameCanvas, this);
         gameCanvas.setModel(model);
-        Controller controller = new Controller();
+        controller = new Controller();
         gameCanvas.setController(controller);
         controller.setModel(model);
         addView(gameCanvas);
         gameCanvas.setLayoutParams(new LayoutParams(MainActivity.width, (int) (MainActivity.height*0.9)));
-        gameCanvas.invalidate();
+    }
+
+    public void makeNewSquare() {
+        int x = random.nextInt(MainActivity.width-200);
+        int y  = random.nextInt(MainActivity.height-200);
+        Square square = new Square(x,y);
+        square.setColor(random.nextInt(254)+1, random.nextInt(254)+1,
+                random.nextInt(254)+1);
+        model.squares.add(square);
     }
 
     public void setScoreLabel(int score) {
         scoreLabel.setText("Score: " + score);
+    }
+
+    public void setTimerLabel(int timer) {
+        timeRemaining.setText("Time Remaining: " + timer);
     }
 }

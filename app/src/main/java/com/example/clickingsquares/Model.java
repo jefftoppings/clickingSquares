@@ -6,14 +6,17 @@ public class Model {
 
     GameCanvas gameCanvas;
     ArrayList<Square> squares;
-    int score;
+    int score, timer;
     Gameplay gameplay;
+    long startTime;
 
     public Model(GameCanvas gameCanvas, Gameplay gameplay) {
         this.gameCanvas = gameCanvas;
         this.gameplay = gameplay;
         this.squares = new ArrayList<>();
+        startTime = System.currentTimeMillis();
         score = 0;
+        timer = 60;
     }
 
     public Square checkHit(float x, float y) {
