@@ -14,9 +14,11 @@ public class MainMenu extends LinearLayout {
 
     TextView title;
     Button startButton;
+    Context context;
 
     public MainMenu(Context context) {
         super(context);
+        this.context = context;
         setBackgroundColor(Color.CYAN);
         setLayoutParams(new LayoutParams(MainActivity.width, MainActivity.height));
         setOrientation(VERTICAL);
@@ -57,5 +59,8 @@ public class MainMenu extends LinearLayout {
 
     private void startGame(View view) {
         System.out.println("Game Starts");
+
+        MainActivity.root.removeAllViews();
+        MainActivity.root.addView(new Gameplay(context));
     }
 }
