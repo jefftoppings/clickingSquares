@@ -15,7 +15,7 @@ public class EndGame extends LinearLayout {
 
         TextView scoreTop = new TextView(context);
         addView(scoreTop);
-        scoreTop.setText("You got 100 points in\n\n");
+        scoreTop.setText("\n\nYou got 100 points in\n\n");
         scoreTop.setTextSize(30);
         scoreTop.setTextAlignment(TEXT_ALIGNMENT_CENTER);
         scoreTop.setWidth(MainActivity.width);

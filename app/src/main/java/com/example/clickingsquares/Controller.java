@@ -34,10 +34,18 @@ class Controller {
                     model.gameplay.setScoreLabel(model.score);
                 }
 
-                // add more squares
-                if (model.squares.size() < 40) {
+                if (model.squares.size() < 50) {
+                    // add more squares
                     for (int i = 0; i < 5; i++) {
                         model.gameplay.makeNewSquare();
+                    }
+                }
+                else {
+                    // remove some squares
+                    for (int i=0; i<model.squares.size(); i++) {
+                        if (i % 2 == 0) {
+                            model.squares.remove(i);
+                        }
                     }
                 }
 
